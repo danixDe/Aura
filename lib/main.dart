@@ -14,9 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Login Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
-      ),
+
       initialRoute: '/',
       routes: {
         '/': (context) => PatternCarousel(), 

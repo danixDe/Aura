@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class PatternCarousel extends StatefulWidget {
-  const PatternCarousel({super.key});
+  const PatternCarousel({Key? key}) : super(key: key);
 
   @override
   _PatternCarouselState createState() => _PatternCarouselState();
@@ -16,19 +16,19 @@ class _PatternCarouselState extends State<PatternCarousel> {
 
   final List<Map<String, dynamic>> patterns = [
     {
-      'path': 'assets/pattern1.svg',
-      'backgroundColor': "#ffffff",
+      'path': 'assets/Pattern1.svg',
+      'backgroundColor': "#251241",
     },
     {
-      'path': 'assets/pattern2.svg',
+      'path': 'assets/Pattern2.svg',
       'backgroundColor': "#000000",
     },
     {
-      'path': 'assets/pattern3.svg',
-      'backgroundColor': "#252144",
+      'path': 'assets/Pattern3.svg',
+      'backgroundColor': "#ff95a9",
     },
     {
-      'path': 'assets/pattern4.svg',
+      'path': 'assets/Pattern4.svg',
       'backgroundColor': "#ffffff",
     },
   ];
@@ -37,6 +37,7 @@ class _PatternCarouselState extends State<PatternCarousel> {
   void initState() {
     super.initState();
     _pageController = PageController();
+
     _timer = Timer.periodic(const Duration(seconds: 3), (timer) {
       if (_pageController.hasClients) {
         final nextPage = (_currentPage + 1) % patterns.length;
@@ -79,15 +80,13 @@ class _PatternCarouselState extends State<PatternCarousel> {
               );
 
               return Container(
-                  color: backgroundColor,
-                  child: SvgPicture.asset(pattern['path'],
-                                        fit: BoxFit.cover,
-                                        ),
-                );
+                color: backgroundColor,
+                child: _TilingPattern(patternPath: pattern['path']),
+              );
             },
           ),
           Positioned(
-            bottom: 50,
+            bottom: 30,
             left: 0,
             right: 0,
             child: Center(
@@ -97,14 +96,51 @@ class _PatternCarouselState extends State<PatternCarousel> {
                 },
                 child: const Text('Get Started'),
                 style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-                  textStyle: const TextStyle(fontSize: 16),
+                  padding: const EdgeInsets.symmetric(horizontal: 120, vertical: 15),
+                  backgroundColor: Colors.deepPurple,
+                  textStyle: const TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w900,
+                  ),
                 ),
               ),
             ),
           ),
         ],
       ),
+    );
+  }
+}
+
+class _TilingPattern extends StatelessWidget {
+  final String patternPath;
+
+  const _TilingPattern({Key? key, required this.patternPath}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final width = constraints.maxWidth;
+        final height = constraints.maxHeight;
+
+        return Stack(
+          children: [
+            for (double x = 0; x < width; x += 100) // Tile width
+              for (double y = 0; y < height; y += 100) // Tile height
+                Positioned(
+                  left: x,
+                  top: y,
+                  child: SvgPicture.asset(
+                    patternPath,
+                    width: 100, // Size of each SVG tile
+                    height: 100,
+                  ),
+                ),
+          ],
+        );
+      },
     );
   }
 }
