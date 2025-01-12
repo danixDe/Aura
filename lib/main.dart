@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import "screens/login/login.dart";
+import 'screens/login/login.dart';
+import 'screens/landing/landing.dart'; 
 
 void main() {
   runApp(MyApp());
@@ -7,6 +8,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,7 +17,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
       ),
-      home: LoginPage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => PatternCarousel(), 
+        '/login': (context) => LoginPage(),  
+      },
     );
   }
 }
