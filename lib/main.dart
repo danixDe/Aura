@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'screens/login/login.dart';
-import 'screens/landing/landing.dart'; 
+import 'screens/login/donor_login.dart';
+import 'screens/login/hos_login.dart';
+import 'screens/login/role_selection.dart';
+import 'screens/landing/landing.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,12 +15,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Login Demo',
-
       initialRoute: '/',
       routes: {
-        '/': (context) => PatternCarousel(), 
-        '/login': (context) => LoginPage(),  
+        '/': (context) => PatternCarousel(),
+        '/donor-login': (context) => LoginPage(),
+        '/hospital-login':(context) => const HospitalLoginPage(),
+        '/role-selection': (context) => const RoleSelectionPage(),
       },
     );
   }

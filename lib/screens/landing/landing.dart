@@ -87,25 +87,60 @@ class _PatternCarouselState extends State<PatternCarousel> {
           ),
           Positioned(
             bottom: 30,
-            left: 0,
-            right: 0,
-            child: Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/login');
-                },
-                child: const Text('Get Started'),
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(horizontal: 120, vertical: 15),
-                  backgroundColor: Colors.deepPurple,
-                  textStyle: const TextStyle(
-                    fontSize: 16,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w900,
+            left: 16,
+            right: 16,
+            child:Hero(
+            tag: 'getStartedButton',
+            child: GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/role-selection');
+              },
+              child: AnimatedContainer(
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.easeInOut,
+                padding: const EdgeInsets.symmetric(vertical: 15),
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    colors: [
+                      Color(0xFF000000),
+                      Color.fromARGB(255, 30, 3, 55), 
+
+                    ],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
                   ),
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color.fromARGB(255, 20, 3, 50),
+                      blurRadius: 10,
+                      spreadRadius: 1,
+                      offset: const Offset(0, 4), 
+                    ),
+                  ],
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Text(
+                      'Get Started',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ),
+                    SizedBox(width: 8),
+                    Icon(
+                      Icons.arrow_forward,
+                      color: Colors.white,
+                      size: 18,
+                    ),
+                  ],
                 ),
               ),
             ),
+          ),
           ),
         ],
       ),
@@ -137,7 +172,7 @@ class _TilingPattern extends StatelessWidget {
                     width: 100, // Size of each SVG tile
                     height: 100,
                   ),
-                ),
+               ),
           ],
         );
       },

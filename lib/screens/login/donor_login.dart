@@ -21,16 +21,31 @@ class LoginPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text(
-                  "Sign in to Aura",
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.white,
-                  ),
-                  textAlign: TextAlign.center,
+                Column(
+                  children: [
+                    Text(
+                      "Aura",
+                      style: TextStyle(
+                        fontSize: 48,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.deepPurpleAccent,
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Text(
+                      "Connecting Lives, One Drop at a Time.",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w400,
+                        fontStyle: FontStyle.italic,
+                        color: Colors.white70,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 30),
+
                 TextField(
                   decoration: InputDecoration(
                     filled: true,
@@ -46,6 +61,7 @@ class LoginPage extends StatelessWidget {
                   style: TextStyle(color: Colors.white),
                 ),
                 SizedBox(height: 20),
+
                 TextField(
                   obscureText: true,
                   decoration: InputDecoration(
@@ -62,6 +78,7 @@ class LoginPage extends StatelessWidget {
                   style: TextStyle(color: Colors.white),
                 ),
                 SizedBox(height: 10),
+
                 Align(
                   alignment: Alignment.centerLeft,
                   child: GestureDetector(
@@ -96,11 +113,11 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 10),
+
                 Align(
                   alignment: Alignment.centerRight,
                   child: TextButton(
-                    onPressed: () {
-                    },
+                    onPressed: () {},
                     child: Text(
                       "Create an Account",
                       style: TextStyle(
@@ -112,6 +129,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 10),
+
                 Divider(color: Colors.white30),
                 Text(
                   "Or sign in with",
@@ -119,9 +137,9 @@ class LoginPage extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: 30),
+
                 ElevatedButton.icon(
-                  onPressed: () {
-                  },
+                  onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
                     side: BorderSide(color: Colors.grey),
@@ -138,8 +156,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 ElevatedButton.icon(
-                  onPressed: () {
-                  },
+                  onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue[900],
                     padding: EdgeInsets.symmetric(vertical: 12),
@@ -154,20 +171,15 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 20),
-                ElevatedButton.icon(
-                  onPressed: () {
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
-                    padding: EdgeInsets.symmetric(vertical: 12),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0),
+
+                // Footer
+                Padding(
+                  padding: const EdgeInsets.only(top: 40.0),
+                  child: Center(
+                    child: Text(
+                      "© 2025 Aura | Privacy Policy",
+                      style: TextStyle(color: Colors.white54, fontSize: 12),
                     ),
-                  ),
-                  icon: Icon(Icons.alternate_email, color: Colors.white),
-                  label: Text(
-                    "X",
-                    style: TextStyle(color: Colors.white),
                   ),
                 ),
               ],
