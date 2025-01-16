@@ -8,8 +8,8 @@ class RoleSelectionPage extends StatelessWidget {
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Color(0xFF292E49), Color(0xFF536976)],
+            gradient: LinearGradient(
+            colors: [Colors.black, Color(0xFF1B1F3B)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -29,9 +29,8 @@ class RoleSelectionPage extends StatelessWidget {
                       "Choose Your Role",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 32,
-                        fontWeight: FontWeight.bold,
+                        color: Colors.white70,
+                        fontSize: 20,
                         letterSpacing: 1.2,
                       ),
                     ),
@@ -46,7 +45,7 @@ class RoleSelectionPage extends StatelessWidget {
                     },
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.all(16),
-                      backgroundColor: Color(0xFF1E1E2F),
+                      backgroundColor: Colors.deepPurple,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),
@@ -71,7 +70,7 @@ class RoleSelectionPage extends StatelessWidget {
                     },
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.all(16),
-                      backgroundColor: Color(0xFF1A1A2E),
+                      backgroundColor: Colors.deepOrange,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),
@@ -82,7 +81,7 @@ class RoleSelectionPage extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: Colors.black,
                       ),
                     ),
                   ),

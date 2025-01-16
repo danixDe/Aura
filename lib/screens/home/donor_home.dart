@@ -7,28 +7,48 @@ class DonorHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey[900],
-        elevation: 5,
+        elevation: 0,
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        leading: IconButton(
+            icon: const Icon(Icons.menu),
+            color: Colors.black54,
+            iconSize: 28,
+            onPressed: () {
+              Navigator.pop(context);
+            }),
+
         title: const Text(
           "Aura",
           style: TextStyle(
-            fontSize: 24,
+            fontSize: 26,
             fontWeight: FontWeight.bold,
-            color: Colors.orangeAccent,
-            letterSpacing: 2.0,
+            color: Colors.pink,
+            letterSpacing: 1.5,
           ),
         ),
-        leading: IconButton(
-          icon: const Icon(Icons.menu),
-          color: Colors.orangeAccent,
-          onPressed: () {
-          },
-        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: IconButton(
+                onPressed: () {
+                  print("navigate to profile");
+                },
+                icon: const Icon(Icons.account_circle),
+                iconSize: 28,
+                color:Colors.black54,
+            ),
+          ),
+        ],
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.grey[850]!, Colors.grey[900]!],
+            colors: [
+              Color(0xFFFFFFFF),
+              Color(0xFFF7F7F7),
+              Color(0xFFEFEFEF),
+            ],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -43,7 +63,7 @@ class DonorHomePage extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
-                  color: Colors.orangeAccent,
+                  color: Colors.black,
                 ),
               ),
               const SizedBox(height: 16),
@@ -51,7 +71,7 @@ class DonorHomePage extends StatelessWidget {
                 "Your next step saves lives. Here's what you can do today:",
                 style: TextStyle(
                   fontSize: 16,
-                  color: Colors.white70,
+                  color: Colors.black87,
                 ),
               ),
               const SizedBox(height: 24),
@@ -62,18 +82,16 @@ class DonorHomePage extends StatelessWidget {
                       title: "View Blood Requests",
                       subtitle: "Urgent requests near you",
                       icon: Icons.local_hospital,
-                      color: Colors.redAccent,
-                      onTap: () {
-                      },
+                      color: Colors.red,
+                      onTap: () {},
                     ),
                     const SizedBox(height: 16),
                     _buildActionCard(
                       title: "My Donations",
                       subtitle: "Track your donation history",
                       icon: Icons.history,
-                      color: Colors.orangeAccent,
-                      onTap: () {
-                      },
+                      color: Colors.green,
+                      onTap: () {},
                     ),
                     const SizedBox(height: 16),
                     _buildActionCard(
@@ -81,8 +99,7 @@ class DonorHomePage extends StatelessWidget {
                       subtitle: "Find nearby donation centers",
                       icon: Icons.bloodtype,
                       color: Colors.pinkAccent,
-                      onTap: () {
-                      },
+                      onTap: () {},
                     ),
                   ],
                 ),
@@ -91,26 +108,47 @@ class DonorHomePage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.grey[900],
-        selectedItemColor: Colors.orangeAccent,
-        unselectedItemColor: Colors.white70,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Home",
+      bottomNavigationBar: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color(0xFFEFEFEF),
+              Color(0xFFFFFFFF),
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: "Profile",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add_circle_outline),
-            label: "Add",
-          ),
-        ],
-        onTap: (index) {
-        },
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              height: 2,
+              color: Colors.black12,
+            ),
+            BottomNavigationBar(
+              backgroundColor: Colors.transparent,
+              selectedItemColor: Colors.pink,
+              unselectedItemColor: Colors.black54,
+              elevation: 0,
+              items: const [
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.home),
+                  label: "Home",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.person),
+                  label: "Profile",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.add_circle_outline),
+                  label: "Add",
+                ),
+              ],
+              onTap: (index) {},
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -126,13 +164,13 @@ class DonorHomePage extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.grey[800],
+          color: Colors.white,
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
               color: Colors.black26,
-              blurRadius: 8,
-              offset: const Offset(0, 4),
+              blurRadius: 10,
+              offset: const Offset(0, 6),
             ),
           ],
         ),
@@ -154,7 +192,7 @@ class DonorHomePage extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: Colors.black,
                     ),
                   ),
                   const SizedBox(height: 4),
@@ -162,7 +200,7 @@ class DonorHomePage extends StatelessWidget {
                     subtitle,
                     style: const TextStyle(
                       fontSize: 14,
-                      color: Colors.white70,
+                      color: Colors.black54,
                     ),
                   ),
                 ],
