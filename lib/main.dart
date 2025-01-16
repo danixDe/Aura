@@ -3,6 +3,7 @@ import 'screens/login/donor_login.dart';
 import 'screens/login/hos_login.dart';
 import 'screens/login/role_selection.dart';
 import 'screens/landing/landing.dart';
+import 'screens/home/donor_home.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,8 +20,9 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => PatternCarousel(),
         '/donor-login': (context) => LoginPage(),
-        '/hospital-login':(context) => const HospitalLoginPage(),
+        '/hospital-login': (context) => const HospitalLoginPage(),
         '/role-selection': (context) => const RoleSelectionPage(),
+        '/donor':(context) => const DonorHomePage(),
       },
     );
   }

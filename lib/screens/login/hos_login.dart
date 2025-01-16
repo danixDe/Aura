@@ -82,16 +82,7 @@ class HospitalLoginPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 8), // Adjust spacing slightly
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  onPressed: (){
-
-                  }
-                  "Forgot Password?",
-                  style: TextStyle(color: Colors.white70, fontSize: 14),
-                ),
-              ),
+      
               const SizedBox(height: 24),
               ElevatedButton(
                 onPressed: () {
